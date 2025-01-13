@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .registration-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        .registration-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-group .gender-label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .form-group .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .form-group .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>Registration</h2>
+        <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input type="text" id="firstname">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone">
+        </div>
+        <div class="form-group">
+            <label for="email">Gmail</label>
+            <input type="email" id="email">
+        </div>
+        <div class="form-group">
+            <label>Gender</label>
+            <label class="gender-label">
+                <input type="radio" name="gender" value="male"> Male
+            </label>
+            <label class="gender-label">
+                <input type="radio" name="gender" value="female"> Female
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <select id="city">
+                <option value="">Select City</option>
+                <option value="newyork">Chh.SambhajiNagar</option>
+                <option value="losangeles">Pune</option>
+                <option value="chicago">Kolkata</option>
+                <option value="houston">JaiPur</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="state">State</label>
+            <select id="state">
+                <option value="">Select State</option>
+                <option value="california">Maharastra</option>
+                <option value="texas">Gujrat</option>
+                <option value="illinois">Rajastan</option>
+                <option value="newyork">Goa</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country">
+                <option value="">Select Country</option>
+                <option value="canada">India</option>
+                <option value="usa">United States</option>
+                <option value="uk">United Kingdom</option>
+                <option value="australia">Pakistan</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="button" class="submit-btn" value="Register" onclick="handleRegister()">
+        </div>
+    </div>
+
+    <script>
+        function handleRegister() {
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const gender = document.querySelector('input[name="gender"]:checked')?.value;
+            const city = document.getElementById('city').value;
+            const state = document.getElementById('state').value;
+            const country = document.getElementById('country').value;
+
+            if (!firstname || !lastname || !phone || !email || !gender || !city || !state || !country) {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            // For demonstration purposes, we'll just log the data
+            console.log('Registration Data:', {
+                firstname,
+                lastname,
+                phone,
+                email,
+                gender,
+                city,
+                state,
+                country
+            });
+
+            // You can replace the following line with actual data submission logic
+            alert('Registration successful!');
+        }
+    </script>
+</body>
+</html>
